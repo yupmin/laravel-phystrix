@@ -22,10 +22,10 @@ class DummyClass extends AbstractCommand
     }
 
     /**
-     * @param Exception $exception
+     * @param Exception|null $exception
      * @return mixed
      */
-    public function getFallback(Exception $exception)
+    public function getFallback(Exception $exception = null)
     {
         return $exception->getMessage();
     }
