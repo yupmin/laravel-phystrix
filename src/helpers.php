@@ -14,7 +14,7 @@ if (!function_exists('phystrix')) {
         }
 
         if (is_string($arguments[0])) {
-            return app('phystrix.command-factory')->command(...$arguments);
+            return app('phystrix.command-factory')->getCommand(...$arguments);
         }
 
         throw new Exception('You must set pass some arguments.');
