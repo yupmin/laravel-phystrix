@@ -1,0 +1,33 @@
+<?php
+
+namespace DummyNamespace;
+
+use Exception;
+use Odesk\Phystrix\AbstractCommand;
+
+class DummyClass extends AbstractCommand
+{
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * @param bool $wantFallback
+     * @return mixed
+     * @throws Exception
+     */
+    protected function run()
+    {
+        return 'run test';
+    }
+
+    /**
+     * @param Exception $exception
+     * @return mixed
+     */
+    public function getFallback(Exception $exception)
+    {
+        return $exception->getMessage();
+    }
+}
