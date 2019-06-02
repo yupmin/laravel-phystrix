@@ -20,3 +20,20 @@ if (!function_exists('phystrix')) {
         throw new Exception('You must set pass some arguments.');
     }
 }
+
+if (!function_exists('phystrix_stream')) {
+    /**
+     * @return mixed
+     * @throws Exception
+     */
+    function phystrix_stream()
+    {
+        $arguments = func_get_args();
+
+        if (empty($arguments)) {
+            return app('phystrix.stream');
+        }
+
+        throw new Exception('You must set pass none argument.');
+    }
+}

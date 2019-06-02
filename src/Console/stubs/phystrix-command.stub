@@ -27,6 +27,6 @@ class DummyClass extends AbstractCommand
      */
     public function getFallback(Exception $exception = null)
     {
-        return $exception->getMessage();
+        return $exception instanceof Exception ? $exception->getMessage() : 'null';
     }
 }

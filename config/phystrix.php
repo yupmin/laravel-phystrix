@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'stage_storage_type' => 'array',
+    'state_storage_type' => 'apcu',
     'default' => [ // Default command configuration
         'fallback'       => [
             // Whether fallback logic of the phystrix command is enabled
@@ -10,12 +10,12 @@ return [
         'circuitBreaker' => [
             // Whether circuit breaker is enabled, if not Phystrix will always allow a request
             'enabled'                   => true,
-            // How many failed request it might be before we open the circuit (disallow consecutive requests)
-            'errorThresholdPercentage'  => 50,
             // If true, the circuit breaker will always be open regardless the metrics
             'forceOpen'                 => false,
             // If true, the circuit breaker will always be closed, allowing all requests, regardless the metrics
             'forceClosed'               => false,
+            // How many failed request it might be before we open the circuit (disallow consecutive requests)
+            'errorThresholdPercentage'  => 50,
             // How many requests we need minimally before we can start making decisions about service stability
             'requestVolumeThreshold'    => 10,
             // For how long to wait before attempting to access a failing service
@@ -32,7 +32,7 @@ return [
         'requestCache'   => [
             // Request cache, if enabled and a command has getCacheKey implemented
             // caches results within current http request
-            'enabled' => true,
+            'enabled' => false,
         ],
         'requestLog'     => [
             // Request log collects all commands executed within current http request
