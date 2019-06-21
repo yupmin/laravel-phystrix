@@ -67,7 +67,7 @@ class ServiceProvider extends BaseServiceProvider
         $this->app->alias(Phystrix\CommandFactory::class, 'phystrix.command-factory');
         $this->app->alias(Phystrix\MetricsEventStream\MetricsServer::class, 'phystrix.stream');
         $this->app->alias(Phystrix\ArrayStateStorage::class, 'phystrix.state-storage.array');
-        $this->app->alias(Phystrix\ApcStateStorage::class, 'phystrix.state-storage.apcu');
+        $this->app->alias(Phystrix\ApcuStateStorage::class, 'phystrix.state-storage.apcu');
         $this->app->alias(Phystrix\MetricsEventStream\ApcuMetricsPoller::class, 'phystrix.metrics-event-stream.apcu');
     }
 
