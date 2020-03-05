@@ -18,7 +18,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'/../config/phystrix.php');
+        $source = realpath(__DIR__ . '/../config/phystrix.php');
         if ($this->app instanceof LaravelApplication) {
             $this->publishes([$source => config_path('phystrix.php')]);
         }
@@ -43,7 +43,7 @@ class ServiceProvider extends BaseServiceProvider
             /** @var Application $app */
             $config = $app['config']['phystrix'];
             /** @var Phystrix\StateStorageInterface $stateStorage */
-            $stateStorage = $app->make('phystrix.state-storage.'.$config['state_storage_type']);
+            $stateStorage = $app->make('phystrix.state-storage.' . $config['state_storage_type']);
 
             return new Phystrix\CommandFactory(
                 new Config($config),
@@ -58,7 +58,7 @@ class ServiceProvider extends BaseServiceProvider
             $config = $app['config']['phystrix'];
 
             /** @var Phystrix\MetricsEventStream\MetricsPollerInterface $metricsPoller */
-            $metricsPoller = $app->make('phystrix.metrics-event-stream.'.$config['state_storage_type'], [
+            $metricsPoller = $app->make('phystrix.metrics-event-stream.' . $config['state_storage_type'], [
                 'config' => new Config($config)
             ]);
 

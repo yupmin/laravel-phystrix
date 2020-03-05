@@ -33,7 +33,7 @@ class MakePhystrixCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/../stubs/phystrix-command.stub';
+        return __DIR__ . '/../stubs/phystrix-command.stub';
     }
 
     /**
@@ -44,6 +44,6 @@ class MakePhystrixCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Phystrix';
+        return $rootNamespace . '\Phystrix';
     }
 }
