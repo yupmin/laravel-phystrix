@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace DummyNamespace;
+namespace Tests;
 
 use Exception;
 use Odesk\Phystrix\AbstractCommand;
 
-class DummyClass extends AbstractCommand
+class TestCommand extends AbstractCommand
 {
-    public function __construct()
+    private bool $throwException;
+
+    public function __construct(bool $throwException = false)
     {
-        //
+        $this->throwException = $throwException;
     }
 
     /**
@@ -20,6 +22,10 @@ class DummyClass extends AbstractCommand
      */
     protected function run()
     {
+        if ($this->throwException) {
+            throw new Exception('hi hello!!');
+        }
+
         return 'run test';
     }
 

@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yupmin\Phystrix;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Laminas\Config\Config;
 use Odesk\Phystrix;
 use Yupmin\Phystrix\Console\Commands\MakePhystrixCommand;
-use Zend\Config\Config;
 use Illuminate\Foundation\Application as LaravelApplication;
 
 class ServiceProvider extends BaseServiceProvider
@@ -49,8 +51,8 @@ class ServiceProvider extends BaseServiceProvider
                 new Config($config),
                 new Phystrix\CircuitBreakerFactory($stateStorage),
                 new Phystrix\CommandMetricsFactory($stateStorage),
-                new Phystrix\RequestCache(),
-                new Phystrix\RequestLog()
+                null,
+                null,
             );
         });
         $this->app->singleton(Phystrix\MetricsEventStream\MetricsServer::class, function ($app) {

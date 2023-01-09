@@ -61,10 +61,10 @@ class TestCommand extends AbstractCommand
     }
 
     /**
-     * @param Exception $exception
+     * @param Exception|null $exception
      * @return mixed
      */
-    public function getFallback(Exception $exception)
+    protected function getFallback(?Exception $exception = null)
     {
         return $exception->getMessage();
     }
@@ -74,9 +74,9 @@ class TestCommand extends AbstractCommand
 Run TestCommand
 
 ```php
-phystrinx(App\Phystrix\TestCommand::class)->exercute();
+phystrinx(App\Phystrix\TestCommand::class)->execute();
 // => "run test"
-phystrinx(App\Phystrix\TestCommand::class, false)->exercute();
+phystrinx(App\Phystrix\TestCommand::class, false)->execute();
 // => "fallback"
 ```
 
